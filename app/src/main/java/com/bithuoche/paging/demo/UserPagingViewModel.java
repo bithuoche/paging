@@ -14,12 +14,20 @@ public class UserPagingViewModel extends BasePagingViewModel<User, Long> {
     GitHubService gitHubService = GitHubApi.createGitHubService();
 
     @Override
-    protected void load(Long key, int pageSize, final PageLoadCallback<User> pageLoadCallback) {
+    protected void load(final Long key, final int pageSize, final PageLoadCallback<User> pageLoadCallback) {
         gitHubService.getUser(key, pageSize).enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response.isSuccessful() && response.code() == 200) {
-                    pageLoadCallback.onPageLoad(response.body());
+                    List<User> users = response.body();
+
+                    // Mock reaching end
+                    if (key > 30) {
+                        users = users.subList(0, pageSize / 2);
+                    }
+                    // End
+
+                    pageLoadCallback.onPageLoad(users);
                 } else {
                     pageLoadCallback.onPageLoadFailed(new IOException());
                 }

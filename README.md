@@ -1,2 +1,26 @@
-# paging
-Pagination with error handling
+Paging
+========
+
+简单、好用、小巧的列表加载框架，支持错误处理、展示加载更多和失败重试。
+
+![](/art/ezgif-1-7ced83a24c.gif)
+
+[demo](/art/demo.apk)
+
+License
+=======
+
+    Copyright 2018 BitHuoche, Inc.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
